@@ -1,10 +1,14 @@
 package com.pluralsight;
 
 import java.io.FileWriter;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.time.LocalDateTime;
 
 public class SearchEngineLoggerApp {
+    //Importing Static stuff to help with code
     static Scanner theScanner = new Scanner(System.in);
+
 
     public static void main(String[] args) {
 
@@ -22,6 +26,16 @@ public class SearchEngineLoggerApp {
         //Variable for menu running
         boolean isRunning = true;
         while(isRunning){
+            if(usersChoice == 1){
+                System.out.println("Application is Launched!");
+                break;
+            }
+            else if(usersChoice == 2){
+
+
+            }else{
+                isRunning = false;
+            }
 
 
         }
@@ -29,6 +43,10 @@ public class SearchEngineLoggerApp {
     }
 
     public static void logger(){
+        //Imported the datetime/formatter in the method
+        LocalDateTime dateTimeLogger = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
 
 
     }

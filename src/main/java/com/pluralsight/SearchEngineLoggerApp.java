@@ -1,6 +1,9 @@
 package com.pluralsight;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.LocalDateTime;
@@ -46,6 +49,16 @@ public class SearchEngineLoggerApp {
         //Imported the datetime/formatter in the method
         LocalDateTime dateTimeLogger = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        //Create File Writer/Buffer Writer
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("src/main/resources");
+            BufferedWriter bufWriter = new BufferedWriter(writer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
 
 
 

@@ -34,28 +34,44 @@ public class SearchEngineLoggerApp {
                 break;
             }
             else if(usersChoice == 2){
-
+            //Create a method to help with choice 2 what is the users search
 
             }else{
                 isRunning = false;
             }
-
-
         }
+        logger(usersChoice);
+
 
     }
 
-    public static void logger(){
+    public static void logger(int usersChoice){
         //Imported the datetime/formatter in the method
         LocalDateTime dateTimeLogger = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = dateTimeLogger.format(formatter);
 
         //Create File Writer/Buffer Writer
         FileWriter writer = null;
         try {
+            //prompt the user to name the file of the logger and store it
+            System.out.println("What do you want to call the file name?");
+
+
             writer = new FileWriter("src/main/resources");
             BufferedWriter bufWriter = new BufferedWriter(writer);
+
+            //use the writer to log in the information that has been processed in the menu
+            if(usersChoice == 1) {
+                bufWriter.write("Application is Launched! " + formattedDate);
+            }else if(usersChoice == 2){
+
+            }
+
         } catch (Exception e) {
+
+            //Print to users that we couldn't find the file
+            System.out.println("File was not found");
             throw new RuntimeException(e);
         }
 
